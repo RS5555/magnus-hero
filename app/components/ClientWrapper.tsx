@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import Navbar from "./Navbar";
 import Loader from "./Loader";
+import Navbar from "./Navbar";
 
 export default function ClientWrapper({
   children,

@@ -1,8 +1,4 @@
-// import AboutScreen from "./components/AboutScreen";
-// import ContactPage from "./components/Contact";
-// import Footer from "./components/Footer";
 import HeroScreen from "./components/HeroScreen";
-// import ProjectScreen from "./components/ProjectScreen";
 
 export default function Home() {
   return (

@@ -1,3 +1,201 @@
+// "use client";
+// import React, { useState, useEffect } from "react";
+// import Link from "next/link";
+// import { motion } from "framer-motion";
+
+// const navLinks = [
+//   { name: "Home", href: "/" },
+//   { name: "About", href: "/about" },
+//   { name: "Projects", href: "/projects" },
+//   { name: "Media", href: "/media" },
+//   { name: "Contact", href: "/contact" },
+// ];
+
+// export default function Navbar() {
+//   const [isScrolled, setIsScrolled] = useState(false);
+
+//   useEffect(() => {
+//     const handleScroll = () => setIsScrolled(window.scrollY > 50);
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   return (
+//     <header className="fixed top-0 left-0 w-full z-[100] px-10 pt-8 pointer-events-none">
+//       <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+//         {/* 1. Free-Floating Logo with Glow */}
+//         <motion.div
+//           initial={{ opacity: 0, x: -20 }}
+//           animate={{ opacity: 1, x: 0 }}
+//           className="pointer-events-auto relative group"
+//         >
+//           {/* Subtle light glow behind logo to make it pop from the art */}
+//           <div className="absolute inset-0 bg-white/20 blur-2xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+//           <Link href="/">
+//             <img
+//               src="/Magnus Corp_Logo.png"
+//               alt="Magnus Logo"
+//               className="h-12 w-auto object-contain relative z-10 drop-shadow-[0_5px_15px_rgba(0,0,0,0.1)]"
+//             />
+//           </Link>
+//         </motion.div>
+
+//         {/* 2. Sleek Minimalist Pill */}
+//         <motion.nav
+//           initial={{ opacity: 0, y: -10 }}
+//           animate={{
+//             opacity: 1,
+//             y: 0,
+//             backgroundColor: isScrolled
+//               ? "rgba(255, 255, 255, 0.8)"
+//               : "rgba(255, 255, 255, 0.4)",
+//           }}
+//           className={`pointer-events-auto backdrop-blur-xl border border-white/30 px-8 py-3 rounded-full shadow-2xl flex items-center gap-10 transition-all duration-500`}
+//         >
+//           <ul className="flex items-center gap-10">
+//             {navLinks.map((link) => (
+//               <li key={link.name}>
+//                 <Link
+//                   href={link.href}
+//                   className="text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-800 hover:text-[#8b735b] transition-colors"
+//                 >
+//                   {link.name}
+//                 </Link>
+//               </li>
+//             ))}
+//           </ul>
+
+//           <div className="h-4 w-[1px] bg-zinc-300" />
+
+//           {/* Action Button: Puneri 'Khadak' Style */}
+//           <button className="text-[10px] font-black uppercase tracking-widest bg-zinc-900 text-white px-5 py-2 rounded-full hover:bg-[#8b735b] transition-all active:scale-95 shadow-lg">
+//             Enquire
+//           </button>
+//         </motion.nav>
+//       </div>
+//     </header>
+//   );
+// }
+// "use client";
+// import React, { useState, useEffect } from "react";
+// import Link from "next/link";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { HiMenuAlt3, HiX } from "react-icons/hi";
+
+// const navLinks = [
+//   { name: "Home", href: "#home" },
+//   { name: "About", href: "#about" },
+//   { name: "Projects", href: "#projects" },
+//   { name: "Contact", href: "#contact" },
+// ];
+
+// export default function Navbar() {
+//   const [isScrolled, setIsScrolled] = useState(false);
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   useEffect(() => {
+//     const handleScroll = () => setIsScrolled(window.scrollY > 50);
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   const handleScrollTo = (e: any, href: string) => {
+//     e.preventDefault();
+//     setIsOpen(false);
+//     const targetId = href.replace("#", "");
+//     const elem = document.getElementById(targetId);
+//     elem?.scrollIntoView({ behavior: "smooth" });
+//   };
+
+//   return (
+//     <header
+//       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ease-in-out bg-neutral-900  backdrop-blur-md py-4 shadow-md border-b border-zinc-100`}
+//     >
+//       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-10">
+//         {/* 1. LEFT: Logo */}
+//         <div className="w-1/4 flex justify-start">
+//           <Link href="/" className="pointer-events-auto">
+//             <img
+//               src="/Magnus Corp_Logo.png"
+//               alt="Magnus Logo"
+//               className={`h-10 md:h-14 w-auto object-contain transition-all duration-500`}
+//             />
+//           </Link>
+//         </div>
+
+//         {/* 2. CENTER: Navigation Tabs (Desktop Only) */}
+//         <div className="hidden lg:flex w-2/4 justify-center">
+//           <ul className="flex items-center gap-12">
+//             {navLinks.map((link) => (
+//               <li key={link.name} className="relative group">
+//                 <a
+//                   href={link.href}
+//                   onClick={(e) => handleScrollTo(e, link.href)}
+//                   className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-all duration-300 text-white hover:text-[#8b735b]`}
+//                 >
+//                   {link.name}
+//                 </a>
+//                 {/* Underline Animation */}
+//                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#8b735b] transition-all duration-300 group-hover:w-full" />
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+
+//         {/* 3. RIGHT: Enquire Button */}
+//         <div className="w-1/4 flex justify-end items-center gap-4">
+//           <button
+//             onClick={() => {
+//               const elem = document.getElementById("contact");
+//               elem?.scrollIntoView({ behavior: "smooth" });
+//             }}
+//             className={`text-[9px] font-black uppercase tracking-[0.3em] px-8 py-3 rounded-sm transition-all duration-500 active:scale-95 bg-[#2a2a2a] text-white hover:bg-[#8b735b]`}
+//           >
+//             Enquire Now
+//           </button>
+
+//           {/* Mobile Menu Toggle */}
+//           <button
+//             onClick={() => setIsOpen(!isOpen)}
+//             className={`lg:hidden p-1 transition-colors ${
+//               isScrolled || isOpen ? "text-zinc-800" : "text-white"
+//             }`}
+//           >
+//             {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+//           </button>
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu Overlay */}
+//       <AnimatePresence>
+//         {isOpen && (
+//           <motion.div
+//             initial={{ opacity: 0, height: 0 }}
+//             animate={{ opacity: 1, height: "auto" }}
+//             exit={{ opacity: 0, height: 0 }}
+//             className="absolute top-full left-0 w-full bg-white border-b border-zinc-100 lg:hidden overflow-hidden"
+//           >
+//             <ul className="flex flex-col items-center py-12 gap-8">
+//               {navLinks.map((link) => (
+//                 <li key={link.name}>
+//                   <a
+//                     href={link.href}
+//                     onClick={(e) => handleScrollTo(e, link.href)}
+//                     className="text-xs font-bold uppercase tracking-[0.4em] text-zinc-800 hover:text-[#8b735b] transition-colors"
+//                   >
+//                     {link.name}
+//                   </a>
+//                 </li>
+//               ))}
+//             </ul>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </header>
+//   );
+// }
+
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -24,7 +222,7 @@ export default function Navbar() {
   // Optimized Scroll Function for Mobile
   const handleScrollTo = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
-
+    
     // 1. Close the mobile menu first
     setIsOpen(false);
 
@@ -47,12 +245,13 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ease-in-out ${
-        isScrolled || isOpen
-          ? "bg-neutral-900 shadow-md py-4"
+        isScrolled || isOpen 
+          ? "bg-neutral-900 shadow-md py-4" 
           : "bg-neutral-900 backdrop-blur-md py-6"
       } border-b border-white/10`}
     >
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-10">
+        
         {/* 1. LEFT: Logo */}
         <div className="flex-1 flex justify-start">
           <Link href="/" className="pointer-events-auto">
@@ -87,11 +286,7 @@ export default function Navbar() {
           <button
             onClick={() => {
               const elem = document.getElementById("contact");
-              if (elem)
-                window.scrollTo({
-                  top: elem.offsetTop - 80,
-                  behavior: "smooth",
-                });
+              if (elem) window.scrollTo({ top: elem.offsetTop - 80, behavior: "smooth" });
             }}
             className="hidden sm:block text-[9px] font-black uppercase tracking-[0.3em] px-8 py-3 rounded-sm transition-all duration-500 active:scale-95 bg-white text-[#2a2a2a] hover:bg-[#8b735b] hover:text-white"
           >
@@ -119,7 +314,7 @@ export default function Navbar() {
           >
             <ul className="flex flex-col items-center justify-start pt-20 gap-10">
               {navLinks.map((link, idx) => (
-                <motion.li
+                <motion.li 
                   key={link.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -134,7 +329,7 @@ export default function Navbar() {
                   </a>
                 </motion.li>
               ))}
-
+              
               {/* Mobile Only Enquire Button */}
               <motion.button
                 initial={{ opacity: 0 }}
@@ -143,11 +338,7 @@ export default function Navbar() {
                 onClick={() => {
                   setIsOpen(false);
                   const elem = document.getElementById("contact");
-                  if (elem)
-                    window.scrollTo({
-                      top: elem.offsetTop - 80,
-                      behavior: "smooth",
-                    });
+                  if (elem) window.scrollTo({ top: elem.offsetTop - 80, behavior: "smooth" });
                 }}
                 className="mt-10 text-[10px] font-black uppercase tracking-[0.3em] px-10 py-4 bg-[#8b735b] text-white rounded-sm"
               >

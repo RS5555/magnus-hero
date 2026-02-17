@@ -108,7 +108,7 @@ export default function HeroScreen() {
                     {activeIndex === 0 ? (
                       <>
                         <span>Kiraye ka Ghar</span>
-                        <span className="lg:ml-35 text-2xl md:text-3xl lg:text-4xl italic font-light text-[#8b735b] my-1 md:my-2 lowercase tracking-widest">
+                        <span className="lg:ml-30 text-2xl md:text-3xl lg:text-4xl italic font-light text-[#8b735b] my-1 md:my-2 lowercase tracking-widest">
                           vs
                         </span>
                         <span>Apna Ghar</span>
@@ -180,17 +180,6 @@ export default function HeroScreen() {
               </div>
             </div>
           </div>
-
-          {/* <div className="hidden lg:flex flex-col items-center gap-4 absolute left-1/2 -translate-x-1/2 bottom-0">
-            <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-[1px] h-20 bg-gradient-to-b from-[#8b735b] to-transparent"
-            />
-            <span className="text-[12px] uppercase tracking-widest text-zinc-900  origin-left translate-x-1">
-              Scroll
-            </span>
-          </div> */}
         </div>
       </div>
     </section>
@@ -279,7 +268,7 @@ function ZoomLayer({
 //           Your browser does not support the video tag.
 //         </video>
 //         {/* Dynamic Overlay: Darker on mobile for better text legibility */}
-//         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/10 z-10" />
+//         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/50 z-10" />
 //       </div>
 
 //       {/* 2. Central Narrative Container */}
@@ -358,7 +347,7 @@ function ZoomLayer({
 //       target="_blank"
 //       rel="noopener noreferrer"
 //       whileHover={{ y: -5, color: "#8b735b" }}
-//       className="text-zinc-900 hover:text-[#8b735b] transition-colors duration-300"
+//       className="text-white/50 hover:text-[#8b735b] transition-colors duration-300"
 //     >
 //       <Icon className="text-lg md:text-xl" />
 //     </motion.a>
